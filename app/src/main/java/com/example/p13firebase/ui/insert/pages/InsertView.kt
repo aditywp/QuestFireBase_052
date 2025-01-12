@@ -16,6 +16,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -59,7 +60,7 @@ fun InsertView (
                 coroutineScope.launch {
                     snackbarHostState.showSnackbar(uiState.message)
                 }
-                delay(700)x
+                delay(700)
                 onNavigate()
                 viewModel.resetSnackBarMessage()
             }
@@ -73,7 +74,7 @@ fun InsertView (
     }
     Scaffold (
         modifier = modifier,
-        snackbarHost = { SnackbarHostState(hostState = snackbarHostState)},
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text("Tambah Mahasiswa")  },
