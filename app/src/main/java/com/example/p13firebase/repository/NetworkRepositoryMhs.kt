@@ -32,6 +32,17 @@ class NetworkRepositoryMhs(
         }
     }
 
+    override suspend fun updateMhs(mahasiswa: Mahasiswa) {
+        try {
+            firestore.collection("Mahasiswa")
+                .document(mahasiswa.nim)
+                .delete()
+                .await()
+        } catch (e: Exception){
+            throw Exception ("Gagal mengupdate data Mahasiswa: ${e.message}")
+        }
+    }
+
     override fun getAllMhs(): Flow<List<Mahasiswa>> = callbackFlow {
        val mhsCollection = firestore.collection("Mahasiswa")
            .orderBy("nim", Query.Direction.ASCENDING)
