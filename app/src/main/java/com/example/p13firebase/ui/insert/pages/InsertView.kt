@@ -180,7 +180,7 @@ fun FormMahasiswa(
                 onValueChange(mahasiswaEvent.copy(nim = it))
             },
             label = { Text(text = "NIM") },
-            isError = errorState.nama != null,
+            isError = errorState.nim != null,
             placeholder = { Text(text = "Masukkan nim") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
@@ -218,10 +218,10 @@ fun FormMahasiswa(
             modifier = Modifier.fillMaxWidth(),
             value = mahasiswaEvent.alamat,
             onValueChange = {
-                onValueChange(mahasiswaEvent.copy(nim = it))
+                onValueChange(mahasiswaEvent.copy(alamat = it))
             },
             label = { Text(text = "Alamat") },
-            isError = errorState.nama != null,
+            isError = errorState.alamat != null,
             placeholder = { Text(text = "Masukkan alamat") }
         )
         Text(
@@ -261,7 +261,7 @@ fun FormMahasiswa(
                 onValueChange(mahasiswaEvent.copy(angkatan = it))
             },
             label = { Text(text = "Angkatan") },
-            isError = errorState.nama != null,
+            isError = errorState.angkatan != null,
             placeholder = { Text(text = "Masukkan angkatan") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
